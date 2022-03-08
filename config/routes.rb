@@ -17,5 +17,7 @@ Rails.application.routes.draw do
 
 
   get '/foods', to: 'foods#index', as: 'foods_index'
+  get '/foods/new', to: 'foods#new', as: 'foods_new'
+  post '/foods', to: 'foods#create', as: 'create_foods_form'
   
 end
