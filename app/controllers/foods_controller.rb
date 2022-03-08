@@ -15,15 +15,15 @@ class FoodsController < ApplicationController
 
   def create
     @current_user = params[:user_id]
-    @new_food = Food.new(users_id: @current_user, name: params[:food][:name], measurement_unit: params[:food][:measurement_unit], price: params[:food][:price])
-
+    @new_food = Food.new(users_id: @current_user, name: params[:food][:name],
+                         measurement_unit: params[:food][:measurement_unit], price: params[:food][:price])
 
     if @new_food.save!
-      flash[:notice] = "Food saved successfully!!"
+      flash[:notice] = 'Food saved successfully!!'
       redirect_to foods_index_path
 
     else
-      flash[:alert] = "Opps! Something went wrong!!!"
+      flash[:alert] = 'Opps! Something went wrong!!!'
       render :new
     end
   end
@@ -31,10 +31,9 @@ class FoodsController < ApplicationController
   def destroy
     @food = Food.find(params[:id])
     if @food.destroy
-      flash[:notice] = "Food deleted successfully"
+      flash[:notice] = 'Food deleted successfully'
       redirect_to foods_index_path
     end
-
   end
 
   private
