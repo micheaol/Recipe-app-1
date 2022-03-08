@@ -32,11 +32,10 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     if @food.destroy
       flash[:notice] = 'Food deleted successfully'
-      redirect_to foods_index_path
     else
       flash[:alert] = 'Opps! Something went wrong'
-      redirect_to foods_index_path
     end
+    redirect_to foods_index_path
   end
 
   private
