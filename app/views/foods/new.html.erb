@@ -1,0 +1,7 @@
+<h1>New Food</h1>
+<%= form_with url: create_foods_form_path(current_user), method: :post, model: @food do |form| %>
+<%= form.text_field :name%>
+<%= form.text_field :measurement_unit%>
+<%= form.text_field :price%>
+<%= form.submit%>
+<%end%>
