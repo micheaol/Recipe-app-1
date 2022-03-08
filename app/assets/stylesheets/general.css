@@ -5,6 +5,7 @@
   font-family: 'Fira Sans', sans-serif;
   display: flex;
   flex-direction: column;
+  background-attachment: fixed;
 }
 
 .blog-slider {
@@ -54,3 +55,4 @@
   gap: 60px;
   justify-content: center;
 }
+

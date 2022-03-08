@@ -8,7 +8,7 @@ gem 'rails', '~> 7.0.2', '>= 7.0.2.2'
 
 gem 'devise'
 
-gem 'cancancan'
+gem 'cancancan', '~> 3.3.0'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
