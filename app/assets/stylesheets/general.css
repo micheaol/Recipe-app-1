@@ -5,6 +5,7 @@
   font-family: 'Fira Sans', sans-serif;
   display: flex;
   flex-direction: column;
+  background-attachment: fixed;
 }
 
 .blog-slider {
@@ -53,4 +54,8 @@
   padding: 20px;
   gap: 60px;
   justify-content: center;
+}
+
+.new-inventory-button {
+  text-align: center;
 }

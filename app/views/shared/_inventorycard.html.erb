@@ -1,0 +1,18 @@
+     <%= link_to inventories_show_path(inventory.id), class: "link_style center_button" do %>
+    <div class="blog-slider new-shadow new-height">
+
+<div class="recipe-info-container">
+    <div class="recipe-title-container">
+    <h2><%= inventory.name %></h2>
+                     <%= button_to "Delete", inventories_destroy_path(inventory.id), method: :delete, class: "button-29 delete_button_style" %>
+
+    </div>
+    <div class="recipe-description-container">
+    <span class="recipe-description">
+    <%= inventory.description %>
+    </span>
+    </div>
+    </div>
+    </div>
+
+         <% end %>
