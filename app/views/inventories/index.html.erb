@@ -1,29 +1,12 @@
 <body class="page_body">
         <%= render 'shared/messageflash'%>
 
-    <div class="blog-slider new-shadow new-height">
+
+    <% @user_inventory.each do |inventory| %>
     
-    <div class="recipe-info-container">
+        <%= render 'shared/inventorycard', :inventory => inventory%>
     
-    <div class="recipe-title-container">
-    
-    <h2>Inventory 1</h2>
-<button class="button-29 delete_button_style" role="button">Delete</button>
-
-    </div>
-   
-   
-    <div class="recipe-description-container">
-    <span class="recipe-description">
-    This is the description for the recipe, this is a very good recipe for all the family...
-    </span>
-    </div>
-
-
-    </div>
-
-
-    </div>
+    <%  end %>
     
 
 </body>

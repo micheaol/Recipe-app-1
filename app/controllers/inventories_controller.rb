@@ -1,5 +1,9 @@
 class InventoriesController < ApplicationController
-  def index; end
+  def index
+    @user_inventory = Inventory.where(users_id: 1)
+    puts 'hereee'
+    
+  end
 
   def new; end
 
