@@ -3,11 +3,12 @@
 <div class="recipe-info-container">
     <div class="recipe-title-container">
     <h2><%= inventory.name %></h2>
-<button class="button-29 delete_button_style" role="button">Delete</button>
+                     <%= button_to "Delete", inventories_destroy_path(inventory.id), method: :delete, class: "button-29 delete_button_style" %>
+
     </div>
     <div class="recipe-description-container">
     <span class="recipe-description">
-    This is the description for the recipe, this is a very good recipe for all the family...
+    <%= inventory.description %>
     </span>
     </div>
     </div>

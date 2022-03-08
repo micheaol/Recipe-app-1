@@ -1,6 +1,11 @@
 <body class="page_body">
         <%= render 'shared/messageflash'%>
 
+            <div class="new-inventory-button">
+            <%= link_to inventories_new_path, class: "link_style" do %>
+              <button class="button-29" role="button">New inventory</button>
+              <% end %>
+            </div>
 
     <% @user_inventory.each do |inventory| %>
     
