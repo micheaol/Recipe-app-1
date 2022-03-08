@@ -1,2 +1,30 @@
-<h1>Recipes#index</h1>
-<p>This page will show all the recipes from the current_user</p>
+<div class="recipes-container">
+  <h1>User name recipes</h1>
+    <% flash.each do |type, msg| %>
+    <% if type == 'success' %>
+      <h3 class="mid-gap">
+        <%= msg %>
+      </h3>
+    <% end %>
+    <% if type == 'error' %>
+      <h3>
+        <%= msg %>
+      </h3>
+    <% end %>
+  <% end %>
+  <ul class="recipes-list">
+  <% @recipes.each do |recipe|%>
+    <article class="recipe-card">
+      <div class="recipe-card-info">
+        <h3><%= recipe.name %></h3>
+        <button type="button">Remove</button>
+        <%= button_to "Remove", delete_recipe_path(recipe.id), method: :delete %>
+      </div>
+      <div class="recipe-card-about">
+        <p><%= recipe.description %></p>
+      </div>
+    </article>
+  <% end %>
+  </ul>
+  <%= link_to 'Create new recipe', recipes_new_path %>
+</div>
