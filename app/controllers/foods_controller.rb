@@ -5,7 +5,7 @@ class FoodsController < ApplicationController
     @show_foods = Food.all
   end
 
-  def show_by_id
+  def show
     @food = Food.find(params[:id])
   end
 
@@ -32,6 +32,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     if @food.destroy
       flash[:notice] = "Food deleted successfully"
+      redirect_to foods_index_path
     end
 
   end
