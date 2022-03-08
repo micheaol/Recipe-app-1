@@ -1,2 +1,28 @@
-<h1>This is the foods index page</h1>
-
+<p><%= link_to "Add new Food", {:action => 'new' }%></p>
+   <% if @show_foods.blank? %>
+    <h1>There are not any foods currently in the system.</h1>
+    <% else %>
+    <h1>These are the current foods in our system</h1>
+  <table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Food</th>
+        <th scope="col">Measurement unit</th>
+        <th scope="col">Unit price</th>
+        <th scope="col">Action</th>
+        </tr>
+    </thead>
+  <tbody>
+  <% @show_foods.each do |food|%>
+    <tr>
+      <th scope="row"><%= food.id%></th>
+      <td><%= food.name%></td>
+      <td><%= food.measurement_unit%></td>
+      <td><%= food.price%></td>
+      <td><%= link_to "Delete" %></td>
+    </tr>
+  </tbody>
+    <%end%>
+</table>
+<%end%>

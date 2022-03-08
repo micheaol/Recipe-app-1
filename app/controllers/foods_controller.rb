@@ -1,11 +1,12 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
+    @show_foods = Food.all
   end
 
-  def show
-    @user = Users.find(params[:id])
-    @foods = @user.foods.find([:users_id])
-    @show_foods = @foods.all
+  def show_by_id
+    @food = Food.find(params[:id])
   end
 
   def new
@@ -13,12 +14,13 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @current_user = Users.find(params[:users_id])
-    @new_food = Foods.new(user: @current_user, name: params[:food][:name], measurement_unit: params[:food][:measurement_unit], price: params[:food][:price])
+    @current_user = params[:user_id]
+    @new_food = Food.new(users_id: @current_user, name: params[:food][:name], measurement_unit: params[:food][:measurement_unit], price: params[:food][:price])
+
 
     if @new_food.save!
       flash[:notice] = "Food saved successfully!!"
-      # redirect_to foods_index_path(@new_food.users_id)
+      redirect_to foods_index_path
 
     else
       flash[:alert] = "Opps! Something went wrong!!!"
@@ -26,9 +28,17 @@ class FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @food = Food.find(params[:id])
+    if @food.destroy
+      flash[:notice] = "Food deleted successfully"
+    end
+
+  end
+
   private
 
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :id)
+    params.require(:food).permit(:name, :measurement_unit, :price)
   end
 end
