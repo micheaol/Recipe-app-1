@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root "public_recipes#index"
 
   get '/public_recipes', to: 'public_recipes#index', as: 'public_recipes'
+  get '/public_recipes/:id', to: 'public_recipes#show', as: 'show_public_recipes'
   
   get '/recipes', to: 'recipes#index', as: 'recipes_index'
   get '/recipes/new', to: 'recipes#new', as: 'recipes_new'
