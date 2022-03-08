@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   
   get '/recipes', to: 'recipes#index', as: 'recipes_index'
   get '/recipes/new', to: 'recipes#new', as: 'recipes_new'
-  get '/recipes/:recipes_id', to: 'recipes#show_by_id', as: 'recipes_show_by_id'
+  get '/recipes/:recipe_id', to: 'recipes#show_by_id', as: 'recipes_show_by_id'
+  delete '/recipes/:recipe_id', to: 'recipes#destroy', as: 'delete_recipe'
+  post '/recipes/:user_id/recipe', to: "recipes#create", as: 'create_recipe'
 
   get '/shopping_list', to: 'shopping#index', as: 'shopping_index'
   
