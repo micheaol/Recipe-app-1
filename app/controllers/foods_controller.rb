@@ -19,11 +19,11 @@ class FoodsController < ApplicationController
                          measurement_unit: params[:food][:measurement_unit], price: params[:food][:price])
 
     if @new_food.save!
-      flash[:notice] = 'Food saved successfully!!'
+      flash[:notice] = 'Food saved successfully.'
       redirect_to foods_index_path
 
     else
-      flash[:alert] = 'Opps! Something went wrong!!!'
+      flash[:alert] = 'Opps! Something went wrong.'
       render :new
     end
   end

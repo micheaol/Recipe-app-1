@@ -1,14 +1,29 @@
-<p><%= link_to "Add new Food", {:action => 'new' }%></p>
+<body class="page_body">
+
+    <%= render 'shared/messageflash'%>
+
+
+<%= link_to foods_new_path, class: "link_style title-center" do %>
+
+      
+<button class="button-29" role="button">Add new Food</button>
+              <%end%>
+              
    <% if @show_foods.blank? %>
-    <h1>There are not any foods currently in the system.</h1>
+       <div class="blog-slider new-shadow new-height">
+
+    <h2 class="title-center">There are not any foods currently in the system.</h2>
+    </div>
     <% else %>
-    <h1>These are the current foods in our system</h1>
+           <div class="blog-slider new-shadow new-height">
+
+    <%# <h1>These are the current foods in our system</h1> %>
   <table class="table table-bordered table-dark">
     <thead>
         <tr>
         <th scope="col">#</th>
         <th scope="col">Food</th>
-        <th scope="col">Measurement unit</th>
+        <th scope="col">Unit</th>
         <th scope="col">Unit price</th>
         <th scope="col">Action</th>
         </tr>
@@ -25,4 +40,7 @@
   </tbody>
     <%end%>
 </table>
+       </div>
+
 <%end%>
+</body>
