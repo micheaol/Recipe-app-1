@@ -43,11 +43,9 @@
   transform: translateY(2px);
 }
 
-
 .new-shadow {
   box-shadow: 0 14px 80px rgb(34 35 58 / 40%) !important;
 }
-
 
 .delete_button_style {
   background-image: radial-gradient(100% 100% at 100% 0, #f85032 0, #e73827 100%) !important;
