@@ -1,1 +1,41 @@
-<h1>This is the creation form for the inventory</h1>
+<body class="page_body">
+    <%= render 'shared/messageflash'%>
+      <div class="blog-slider">
+
+<h2 class="blog-slider__title title-center">Add new inventory</h2>
+
+  <%= form_with(model: @inventory, url: inventories_create_path, method: :post, local: true) do |f| %>
+
+<h2 class="background double">
+<span>
+    <%= f.label :name %><br />
+</span>
+</h2>
+
+ <div class="session-input-container">
+<%= f.text_field :name %>
+</div>
+
+
+<h2 class="background double">
+<span>
+    <%= f.label :description %><br />
+</span>
+</h2>
+
+ <div class="session-input-container">
+<%= f.text_field :description %>
+</div>
+
+
+<div class="links-align">
+
+<div class="actions button_margin">
+    <%= f.submit "Add new", class:"button-29" %>
+  </div>
+  </div>
+<%end%>
+
+
+</div>
+</body>

@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222150) do
   create_table "food_recipes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "quantity", default: 0
+    t.integer "quantity"
     t.bigint "recipes_id", null: false
     t.bigint "foods_id", null: false
     t.index ["foods_id"], name: "index_food_recipes_on_foods_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222150) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.bigint "users_id", null: false
+    t.string "description"
     t.index ["users_id"], name: "index_inventories_on_users_id"
   end
 
@@ -59,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222150) do
     t.string "preparation_time"
     t.string "cooking_time"
     t.text "description"
-    t.boolean "public", default: false
+    t.boolean "public"
     t.bigint "users_id", null: false
     t.index ["users_id"], name: "index_recipes_on_users_id"
   end
@@ -83,3 +84,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222150) do
   end
 
 end
+
