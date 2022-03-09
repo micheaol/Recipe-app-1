@@ -8,9 +8,18 @@ Rails.application.routes.draw do
   
   get '/recipes', to: 'recipes#index', as: 'recipes_index'
   get '/recipes/new', to: 'recipes#new', as: 'recipes_new'
-  get '/recipes/:recipe_id', to: 'recipes#show_by_id', as: 'recipes_show_by_id'
+  get '/recipes/:recipe_id', to: 'recipes#show', as: 'recipes_show'
+  put '/recipes/:recipe_id', to: 'recipes#update', as: 'recipes_update'
   delete '/recipes/:recipe_id', to: 'recipes#destroy', as: 'delete_recipe'
   post '/recipes/:user_id/recipe', to: "recipes#create", as: 'create_recipe'
+
+  # get 'recipes/:recipe_id/food_recipe', to: 'food_recipes#index', as: 'food_recipes'
+  # get 'recipes/:recipe_id/food_recipe/:food_recipe_id', to: 'food_recipes#show', as: 'food_recipe'
+  get 'recipes/:recipe_id/food_recipes/new', to: 'food_recipes#new', as: 'new_food_recipe'
+  get 'recipes/:recipe_id/food_recipes/:food_recipe_id', to: 'food_recipes#edit', as: 'edit_food_recipes'
+  put 'recipes/:recipe_id/food_recipes/:food_recipe_id', to: 'food_recipes#update', as: 'update_food_recipes'
+  post 'recipes/:recipe_id/food_recipe', to: 'food_recipes#create', as: 'create_food_recipe'
+  delete 'recipes/:recipe_id/food_recipe/:food_recipe_id', to: 'food_recipes#destroy', as: 'delete_food_recipe'
 
   get '/shopping_list', to: 'shopping#index', as: 'shopping_index'
   

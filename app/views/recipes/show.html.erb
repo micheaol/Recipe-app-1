@@ -1,0 +1,53 @@
+<div class="recipes-container">
+  <h1><%= @recipe.name %></h1>
+  <div class="show-recipe-info">
+    <div class="preparation-div">
+      <span>Preparation time: <%= @recipe.preparation_time %></span>
+      <span>Cooking time: <%= @recipe.cooking_time %></span>
+      <p>Steps go here: <%= @recipe.description %></p>
+    </div>
+    <div>
+      <%= form_with model: @recipe, url: recipes_update_path(params[:recipe_id]), method: :put do |f| %>
+        <div class="switch-form">
+          <%= f.label :public, 'Public:', class: "h5 form-check-label", for: "flexSwitchCheckDefault" %>
+          <%= f.check_box :public, class: "form-check-input", id: "flexSwitchCheckDefault", onchange: "this.form.submit();" %>
+          <%= @recipe.public %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="show-recipe-btns">
+    <button>Generate shopping list</button>
+    <%= link_to 'Add ingredient', new_food_recipe_path(params[:recipe_id]) %>
+  </div>
+  <% flash.each do |type, msg| %>
+    <% if type == 'success' %>
+      <h3 class="mid-gap">
+        <%= msg %>
+      </h3>
+    <% end %>
+    <% if type == 'error' %>
+      <h3>
+        <%= msg %>
+      </h3>
+    <% end %>
+  <% end %>
+  <div class="recipe-table-container">
+    <table class="show-recipe-table">
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+        <th>Actions</th>
+      </tr>
+      <% @food_recipes.each do |food_recipe| %>
+        <tr>
+          <td><%= Food.find(food_recipe.foods_id).name %></td>
+          <td><%= food_recipe.quantity %> <%= Food.find(food_recipe.foods_id).measurement_unit %></td>
+          <td><%= Food.find(food_recipe.foods_id).price * food_recipe.quantity %></td>
+          <td><%= link_to 'Modify', edit_food_recipes_path(params[:recipe_id], food_recipe.id), method: :put %> <%= button_to 'Remove', delete_food_recipe_path(params[:recipe_id], food_recipe.id), method: :delete %></td>
+        </tr>
+      <% end%>
+    </table>
+  </div>
+</div>
