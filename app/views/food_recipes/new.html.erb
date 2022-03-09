@@ -1,0 +1,17 @@
+<div class="new-recipes-container">
+<h1>Add an ingredient</h1>
+  <%= form_with url: create_food_recipe_path(params[:recipe_id]), method: :post do |f| %>
+    <div>
+      <%= f.label :foods_id, 'Food' %><br>
+      <% foods_array = @foods.map { |f| [f.name, f.id] } %>
+      <%= f.select(:food_id, options_for_select(foods_array)) %>
+    </div>
+    <div>
+      <%= f.label :quantity %><br>
+      <%= f.number_field :quantity, min: 0 %>
+    </div>
+    <div>
+      <%= f.submit 'Add ingredient' %>
+    </div>
+  <% end %>
+</div>

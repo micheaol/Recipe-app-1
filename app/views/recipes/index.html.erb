@@ -14,16 +14,17 @@
   <% end %>
   <ul class="recipes-list">
   <% @recipes.each do |recipe|%>
-    <article class="recipe-card">
-      <div class="recipe-card-info">
-        <h3><%= recipe.name %></h3>
-        <button type="button">Remove</button>
-        <%= button_to "Remove", delete_recipe_path(recipe.id), method: :delete %>
-      </div>
-      <div class="recipe-card-about">
-        <p><%= recipe.description %></p>
-      </div>
-    </article>
+    <%= link_to recipes_show_path(recipe.id) do %>
+      <article class="recipe-card">
+        <div class="recipe-card-info">
+          <h3><%= recipe.name %></h3>
+          <%= button_to "Remove", delete_recipe_path(recipe.id), method: :delete %>
+        </div>
+        <div class="recipe-card-about">
+          <p><%= recipe.description %></p>
+        </div>
+      </article>
+    <% end %>
   <% end %>
   </ul>
   <%= link_to 'Create new recipe', recipes_new_path %>

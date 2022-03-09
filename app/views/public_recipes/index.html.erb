@@ -1,6 +1,20 @@
 <body class="page_body">
   <%= render 'shared/messageflash'%>
-    <h1>Hello there</h1>
+   <% @public_recipes.each do |public_recipe| %>
+    <div class="card d-flex flex-row m-3">
+        <div class="m-3">
+          <%= link_to public_recipe.name, show_public_recipes_path(public_recipe.id)%>
+          <p>User's name: </p>
+        </div>
+
+        <div class="m-3">
+          <p>Total food items: 4</p>
+          <p>Total price: $25 </p>
+        </div>
+    </div>
+    <%end%>
+
+  
 
   <%= render 'shared/sessionbutton' %>
 </body>

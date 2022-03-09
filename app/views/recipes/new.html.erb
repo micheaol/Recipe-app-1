@@ -1,18 +1,26 @@
 <div class="new-recipes-container">
   <h1>Add a new recipe</h1>
-  <%= form_with model: @recipe, url: create_recipe_path(current_user), class: "new-recipe-form", method: :post do |f|  %>
-    <div>
-      <%= f.label :name, class: "recipe-label" %><br>
-      <%= f.text_field :name, class: "recipe-text" %>
-    </div>
-    
-    <div class="recipe-text-field">
-      <%= f.label :description %><br>
-      <%= f.text_area :description, size: "40x5", class: "recipe-text" %>
-    </div>
-    
-    <div>
-      <%= f.submit "Add recipe" %>
-    </div>
-  <% end %>
+  <div>
+    <%= form_with model: @recipe, url: create_recipe_path(current_user), class: "new-recipe-form", method: :post do |f| %>
+      <div>
+        <%= f.label :name, class: "recipe-label" %><br>
+        <%= f.text_field :name, class: "recipe-text" %>
+      </div>
+      <div class="recipe-text-field">
+        <%= f.label :description %><br>
+        <%= f.text_area :description, size: "40x5", class: "recipe-text" %>
+      </div>
+      <div>
+        <%= f.label :preparation_time, class: "recipe-label" %><br>
+        <%= f.text_field :preparation_time, class: "recipe-text" %>
+      </div>
+      <div>
+        <%= f.label :cooking_time, class: "recipe-label" %><br>
+        <%= f.text_field :cooking_time, class: "recipe-text" %>
+      </div>
+      <div>
+        <%= f.submit "Add recipe" %>
+      </div>
+    <% end %>
+  </div>
 </div>

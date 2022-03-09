@@ -5,8 +5,9 @@ class RecipesController < ApplicationController
     @recipes = current_user.recipes
   end
 
-  def show_by_id
-    puts 'This is the recipes page by ID'
+  def show
+    @recipe = Recipe.find(params[:recipe_id])
+    @food_recipes = FoodRecipe.where(recipes_id: @recipe.id)
   end
 
   def new
@@ -16,6 +17,8 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new
     @recipe.name = params[:recipe][:name]
+    @recipe.preparation_time = params[:recipe][:preparation_time]
+    @recipe.cooking_time = params[:recipe][:cooking_time]
     @recipe.description = params[:recipe][:description]
     @recipe.users_id = params[:user_id]
     if @recipe.save
@@ -23,6 +26,20 @@ class RecipesController < ApplicationController
       redirect_to recipes_index_path
     else
       flash[:error] = 'Recipe save failed'
+    end
+  end
+
+  def update
+    recipe = Recipe.find(params[:recipe_id])
+    case recipe.public
+    when false
+      recipe.public = true
+      recipe.save
+      redirect_to recipes_show_path(recipe.id)
+    when true
+      recipe.public = false
+      recipe.save
+      redirect_to recipes_show_path(recipe.id)
     end
   end
 
