@@ -40,7 +40,7 @@
         <th>Value</th>
         <th>Actions</th>
       </tr>
-      <% @foodRecipes.each do |food_recipe| %>
+      <% @food_recipes.each do |food_recipe| %>
         <tr>
           <td><%= Food.find(food_recipe.foods_id).name %></td>
           <td><%= food_recipe.quantity %> <%= Food.find(food_recipe.foods_id).measurement_unit %></td>
