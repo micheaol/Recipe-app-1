@@ -4,11 +4,16 @@
     <div class="card d-flex flex-row m-3">
         <div class="m-3">
           <%= link_to public_recipe.name, show_public_recipes_path(public_recipe.id)%>
+            <%@food_recipe.each do |f_recipe|%>
+              <%if f_recipe.recipes_id == public_recipe.id%>
+              <%=f_recipe.foods_id %>
+              <%end%>
+            <%end%>          
           <p>User's name: </p>
         </div>
 
         <div class="m-3">
-          <p>Total food items: 4</p>
+          <p>Total food items:</p>
           <p>Total price: $25 </p>
         </div>
     </div>
