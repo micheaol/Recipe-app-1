@@ -22,18 +22,17 @@ default: &default
   password: password
 
 
+
 development:
   <<: *default
   username: postgres
   password: password
-
   database: Recipe_app_development
 
 test:
   <<: *default
   username: postgres
   password: password
-
   database: Recipe_app_test
 
 production:

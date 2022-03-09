@@ -1,1 +1,29 @@
-<h1>This is the show page for inventory</h1>
+<body class="page_body">
+
+    <%= render 'shared/messageflash'%>
+
+    <% if @selected_inventory_foods.empty?%>
+        <%= render 'shared/nodatacard', :message => "The inventory #{@selected_inventory.name} is Empty"%>
+      <% else %>
+
+      <div class="blog-slider new-shadow new-height">
+
+<div class="recipe-info-container">
+    <div class="recipe-title-container">
+        <h2><%= @selected_inventory.name %></h2>
+
+            <%= render 'shared/inventoryfoodstable', :foods => @selected_inventory_foods, :inventory => @selected_inventory%>
+
+
+
+
+
+    </div>
+    </div>
+    </div>
+
+   
+    <%  end %>
+
+
+</body>

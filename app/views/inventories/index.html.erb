@@ -7,10 +7,15 @@
               <% end %>
             </div>
 
+            <% if @user_inventory.empty?%>
+        <%= render 'shared/nodatacard', :message => "No inventory found"%>
+      <% else %>
+
     <% @user_inventory.each do |inventory| %>
     
         <%= render 'shared/inventorycard', :inventory => inventory%>
     
+    <%  end %>
     <%  end %>
     
 
