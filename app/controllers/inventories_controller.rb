@@ -1,14 +1,16 @@
 class InventoriesController < ApplicationController
   def index
-    @user_inventory = Inventory.where(users_id: 1)
+    @user_inventory = Inventory.where(users_id: current_user.id)
   end
 
   def new
-    @user = User.find(1)
     @inventory = Inventory.new
   end
 
-  def show; end
+  def show
+    @selected_inventory = Inventory.find(params[:inventory_id])
+    @selected_inventory_foods = InventoryFood.where(inventories_id: params[:inventory_id])
+  end
 
   def create
     @inventory = Inventory.new
@@ -33,5 +35,18 @@ class InventoriesController < ApplicationController
     @inventory.destroy
     flash[:success] = 'Inventory successfully deleted'
     redirect_to inventories_index_path
+  end
+
+  def destroy_food
+    @food_to_delete = InventoryFood.where(inventories_id: params[:inventory_id], foods_id: params[:foods_id]).first
+    p @food_to_delete
+    if @food_to_delete.destroy
+
+      flash[:success] = 'Food delete from inventory successfully.'
+    else
+      flash[:error] = 'Opps! Something went wrong'
+    end
+
+    redirect_to inventories_show_path(params[:inventory_id])
   end
 end

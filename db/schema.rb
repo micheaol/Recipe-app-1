@@ -43,14 +43,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222150) do
     t.index ["users_id"], name: "index_inventories_on_users_id"
   end
 
-  create_table "inventories_foods", force: :cascade do |t|
+  create_table "inventory_foods", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity"
     t.bigint "inventories_id", null: false
     t.bigint "foods_id", null: false
-    t.index ["foods_id"], name: "index_inventories_foods_on_foods_id"
-    t.index ["inventories_id"], name: "index_inventories_foods_on_inventories_id"
+    t.index ["foods_id"], name: "index_inventory_foods_on_foods_id"
+    t.index ["inventories_id"], name: "index_inventory_foods_on_inventories_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -84,4 +84,3 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222150) do
   end
 
 end
-
