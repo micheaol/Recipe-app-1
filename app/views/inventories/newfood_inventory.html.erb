@@ -1,0 +1,42 @@
+<body class="page_body">
+        <%= render 'shared/messageflash'%>
+
+              <div class="blog-slider">
+              <h2 class="blog-slider__title title-center">Add an food to <%= @selected_inventory.name %></h2>
+
+  <%= form_with url: post_inventories_newfood_path(params[:inventory_id]), method: :post do |f| %>
+
+    <h2 class="background double">
+<span>
+      <%= f.label :foods_id, 'Food' %><br>
+</span>
+</h2>
+
+ <div class="food-input-align">
+ <% foods_array = @foods.map { |f| [f.name, f.id] } %>
+      <div class="dflex-row select">
+      <%= f.select(:food_id, options_for_select(foods_array), class: "select-tag") %>
+      </div>
+      </div>
+
+
+<h2 class="background double">
+<span>
+      <%= f.label :quantity %><br>
+</span>
+</h2>
+
+ <div class="session-input-container">
+      <%= f.number_field :quantity, min: 0 %>
+</div>
+
+   
+<div class="links-align">
+
+<div class="actions button_margin">
+      <%= f.submit 'Add ingredient', class:"button-29" %>
+    </div>
+    </div>
+  <% end %>
+</div>
+</body>

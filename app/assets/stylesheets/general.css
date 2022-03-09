@@ -68,3 +68,57 @@
   cursor: pointer;
   margin: 0;
 }
+
+.select-tag {
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  flex: 1;
+  padding: 0 1em;
+  color: var(--light-color);
+  background-color: #0365ac;
+  background-image: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dflex-row {
+  display: flex;
+}
+
+.select {
+  position: relative;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #024e85;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+
+/* Transition */
+.select:hover::after {
+  color: #29a3fb;
+}
+
+.select select {
+  width: 100%;
+  background-color: #024e85;
+  color: white;
+}
+
+.food-input-align {
+  display: flex;
+  justify-content: center;
+}

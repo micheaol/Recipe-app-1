@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get '/inventories', to: 'inventories#index', as: 'inventories_index'
   get '/inventories/new', to: 'inventories#new', as: 'inventories_new'
   get '/inventories/:inventory_id', to: 'inventories#show', as: 'inventories_show'
+  get '/inventories/:inventory_id/foods/new', to: 'inventories#newfood_inventory', as: 'inventories_newfood'
+  post '/inventories/:inventory_id/foods/new', to: 'inventories#post_newfood_inventory', as: 'post_inventories_newfood'
   post '/inventories/new', to: 'inventories#create', as: 'inventories_create'
   delete '/inventories/:inventory_id', to: 'inventories#destroy', as: 'inventories_destroy'
   delete '/inventories/:inventory_id/foods/:foods_id', to: 'inventories#destroy_food', as: 'inventories_destroy_foods'

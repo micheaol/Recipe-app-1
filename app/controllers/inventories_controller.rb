@@ -49,4 +49,26 @@ class InventoriesController < ApplicationController
 
     redirect_to inventories_show_path(params[:inventory_id])
   end
+
+  def newfood_inventory
+    @foods = Food.all
+    @selected_inventory = Inventory.find(params[:inventory_id])
+  end
+
+  def post_newfood_inventory
+    @inventory_food = InventoryFood.new
+    p params[:quantity]
+    p params[:inventory_id]
+    p params[:food_id]
+    @inventory_food.quantity = params[:quantity].to_i
+    @inventory_food.inventories_id = params[:inventory_id].to_i
+    @inventory_food.foods_id = params[:food_id].to_i
+    if @inventory_food.save
+      flash[:success] = 'Food added to inventory!'
+    else
+      p @inventory_food.errors.full_messages
+      flash[:error] = 'Food add failed'
+    end
+    redirect_to inventories_show_path(params[:inventory_id])
+  end
 end
