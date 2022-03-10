@@ -3,15 +3,13 @@
    <% @public_recipes.each do |public_recipe| %>
     <div class="card d-flex flex-row m-3">
         <div class="m-3">
-          <%= link_to public_recipe.name, show_public_recipes_path(public_recipe.id)%>
-          <p>User's name: </p>
-          <%= Recipe.count(public_recipe.id) %>
-          <%= Recipe.total(public_recipe.id) %>
+          <%= link_to public_recipe.name, recipes_show_path(public_recipe.id)%>
+          <p>Name: <%=public_recipe.user.name%></p>
+        
         </div>
-
         <div class="m-3">
-          <p>Total food items: 4</p>
-          <p>Total price: $25 </p>
+          <p>Total food items:    <%= Recipe.count(public_recipe.id) %></p>
+          <p>Total price: $ <%= Recipe.total(public_recipe.id) %></p>
         </div>
     </div>
     <%end%>
