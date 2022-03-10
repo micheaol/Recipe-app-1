@@ -1,13 +1,13 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[new create delete]
 
   def index
     @recipes = current_user.recipes
   end
 
   def show
-    @inventory = Inventory.where(user_id: current_user.id)
     @recipe = Recipe.find(params[:recipe_id])
+    @inventory = Inventory.where(user_id: @recipe.user_id)
     @food_recipes = FoodRecipe.where(recipe_id: @recipe.id).includes(:food)
   end
 

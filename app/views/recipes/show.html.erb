@@ -7,6 +7,7 @@
       <p>Steps go here: <%= @recipe.description %></p>
     </div>
     <div>
+    <% if can? :manage, @recipe %>
       <%= form_with model: @recipe, url: recipes_update_path(params[:recipe_id]), method: :put do |f| %>
         <div class="switch-form">
           <%= f.label :public, 'Public:', class: "h5 form-check-label", for: "flexSwitchCheckDefault" %>
@@ -14,12 +15,18 @@
           <%= @recipe.public %>
         </div>
       <% end %>
+    <% end %>
     </div>
   </div>
-  <div class="show-recipe-btns">
-    <button onclick="toggleModal()">Generate shopping list</button>
-    <%= link_to 'Add ingredient', new_food_recipe_path(params[:recipe_id]) %>
-  </div>
+  
+  <% if can? :manage, @recipe %>
+    <div class="show-recipe-btns">
+      <button onclick="toggleModal()">Generate shopping list</button>
+      <%= link_to 'Add ingredient', new_food_recipe_path(params[:recipe_id]) %>
+    </div>
+  <% end %>
+
+
   <% flash.each do |type, msg| %>
     <% if type == 'success' %>
       <h3 class="mid-gap">
@@ -38,14 +45,18 @@
         <th>Food</th>
         <th>Quantity</th>
         <th>Value</th>
+        <% if can? :manage, @recipe %>
         <th>Actions</th>
+        <% end %>
       </tr>
       <% @food_recipes.each do |food_recipe| %>
         <tr>
           <td><%= food_recipe.food.name %></td>
           <td><%= food_recipe.quantity %> <%= food_recipe.food.measurement_unit %></td>
           <td><%= food_recipe.food.price * food_recipe.quantity %></td>
+          <% if can? :manage, @recipe %>
           <td><%= link_to 'Modify', edit_food_recipes_path(params[:recipe_id], food_recipe.id), method: :put %> <%= button_to 'Remove', delete_food_recipe_path(params[:recipe_id], food_recipe.id), method: :delete %></td>
+          <% end %>
         </tr>
       <% end%>
     </table>
