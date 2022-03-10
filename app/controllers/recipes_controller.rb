@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:recipe_id])
-    @food_recipes = FoodRecipe.where(recipes_id: @recipe.id)
+    @food_recipes = FoodRecipe.where(recipe_id: @recipe.id)
   end
 
   def new
@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
     @recipe.preparation_time = params[:recipe][:preparation_time]
     @recipe.cooking_time = params[:recipe][:cooking_time]
     @recipe.description = params[:recipe][:description]
-    @recipe.users_id = params[:user_id]
+    @recipe.user_id = params[:user_id]
     if @recipe.save
       flash[:success] = 'Recipe saved!!'
       redirect_to recipes_index_path

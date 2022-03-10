@@ -9,12 +9,11 @@
     </thead>
   <tbody>
   <% foods.each do |food|%>
-      <% @food_info = Food.find(food.foods_id)%>
     <tr>
-      <th scope="row"><%= @food_info.id%></th>
-      <td><%=@food_info.name%></td>
-      <td><%= (@food_info.price * food.quantity)%> <%= @food_info.measurement_unit%></td>
-      <td><%= button_to inventories_destroy_foods_path(inventory.id, food.foods_id), method: :delete, class: "delete-button-active" do %>
+      <th scope="row"><%= food.food.id%></th>
+      <td><%=food.food.name%></td>
+      <td><%= food.quantity%> <%= food.food.measurement_unit%></td>
+      <td><%= button_to inventories_destroy_foods_path(inventory.id, food.food_id), method: :delete, class: "delete-button-active" do %>
                 <ion-icon name="trash-outline"></ion-icon>
       <% end %>
       </td>

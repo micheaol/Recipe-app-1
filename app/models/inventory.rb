@@ -1,4 +1,4 @@
 class Inventory < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :user
   has_many :inventory_food
 end

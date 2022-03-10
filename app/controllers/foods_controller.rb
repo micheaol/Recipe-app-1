@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
 
   def create
     @current_user = params[:user_id]
-    @new_food = Food.new(users_id: @current_user, name: params[:food][:name],
+    @new_food = Food.new(user_id: @current_user, name: params[:food][:name],
                          measurement_unit: params[:food][:measurement_unit], price: params[:food][:price])
 
     if @new_food.save!

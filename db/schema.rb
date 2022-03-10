@@ -15,60 +15,60 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222150) do
   enable_extension "plpgsql"
 
   create_table "food_recipes", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "recipe_id"
+    t.integer "food_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "quantity"
-    t.bigint "recipes_id", null: false
-    t.bigint "foods_id", null: false
-    t.index ["foods_id"], name: "index_food_recipes_on_foods_id"
-    t.index ["recipes_id"], name: "index_food_recipes_on_recipes_id"
+    t.index ["food_id"], name: "index_food_recipes_on_food_id"
+    t.index ["recipe_id"], name: "index_food_recipes_on_recipe_id"
   end
 
   create_table "foods", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "name"
     t.string "measurement_unit"
     t.integer "price"
-    t.bigint "users_id", null: false
-    t.index ["users_id"], name: "index_foods_on_users_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
   create_table "inventories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.bigint "users_id", null: false
-    t.string "description"
-    t.index ["users_id"], name: "index_inventories_on_users_id"
+    t.index ["user_id"], name: "index_inventories_on_user_id"
   end
 
   create_table "inventory_foods", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "inventory_id"
+    t.integer "food_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "quantity"
-    t.bigint "inventories_id", null: false
-    t.bigint "foods_id", null: false
-    t.index ["foods_id"], name: "index_inventory_foods_on_foods_id"
-    t.index ["inventories_id"], name: "index_inventory_foods_on_inventories_id"
+    t.index ["food_id"], name: "index_inventory_foods_on_food_id"
+    t.index ["inventory_id"], name: "index_inventory_foods_on_inventory_id"
   end
 
   create_table "recipes", force: :cascade do |t|
+    t.string "name"
+    t.string "preparation_time"
+    t.string "cooking_time"
+    t.text "description"
+    t.boolean "public", default: false
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.time "preparation_time"
-    t.time "cooking_time"
-    t.text "description"
-    t.boolean "public"
-    t.bigint "users_id", null: false
-    t.index ["users_id"], name: "index_recipes_on_users_id"
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -83,4 +83,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222150) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "food_recipes", "foods"
+  add_foreign_key "food_recipes", "recipes"
+  add_foreign_key "foods", "users"
+  add_foreign_key "inventories", "users"
+  add_foreign_key "inventory_foods", "foods"
+  add_foreign_key "inventory_foods", "inventories"
+  add_foreign_key "recipes", "users"
 end
