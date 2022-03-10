@@ -1,6 +1,6 @@
 class InventoriesController < ApplicationController
   def index
-    @user_inventory = Inventory.where(users_id: current_user.id)
+    @user_inventory = Inventory.where(user_id: current_user.id)
   end
 
   def new
@@ -16,7 +16,7 @@ class InventoriesController < ApplicationController
     @inventory = Inventory.new
     @inventory.name = params[:inventory][:name]
     @inventory.description = params[:inventory][:description]
-    @inventory.users_id = current_user.id
+    @inventory.user_id = current_user.id
 
     if @inventory.save
       flash[:success] = 'Inventory successfully created.'
@@ -38,7 +38,7 @@ class InventoriesController < ApplicationController
   end
 
   def destroy_food
-    @food_to_delete = InventoryFood.where(inventories_id: params[:inventory_id], foods_id: params[:foods_id]).first
+    @food_to_delete = InventoryFood.where(inventories_id: params[:inventory_id], food_id: params[:foods_id]).first
     p @food_to_delete
     if @food_to_delete.destroy
 
@@ -65,7 +65,7 @@ class InventoriesController < ApplicationController
 
     @inventory_food.quantity = params[:inventory_food][:quantity]
     @inventory_food.inventories_id = params[:inventory_id]
-    @inventory_food.foods_id = params[:inventory_food][:food_id]
+    @inventory_food.food_id = params[:inventory_food][:food_id]
 
     # InventoryFood.create!(quantity: params[:quantity], inventories_id: params[:inventory_id], foods_id: params[:foods_id])
 
