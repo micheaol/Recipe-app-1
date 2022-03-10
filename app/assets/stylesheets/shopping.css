@@ -1,0 +1,15 @@
+.shopping-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.shopping-row {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0px 10px 0px;
+}
+
+.shopping-row span {
+    font-size:20px
+}
+

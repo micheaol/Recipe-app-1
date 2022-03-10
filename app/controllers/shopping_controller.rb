@@ -1,6 +1,7 @@
 class ShoppingController < ApplicationController
   def show
-
+  @selected_inventory = Inventory.find(params[:inventory_id])
+  @selected_recipe = Recipe.find(params[:recipe_id])
   @recipes_food = FoodRecipe.where(recipe_id: params[:recipe_id] ).includes(:food)
   @inventories_food = InventoryFood.where(inventory_id: params[:inventory_id]).includes(:food)
   
