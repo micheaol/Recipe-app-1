@@ -2,6 +2,14 @@
 
     <%= render 'shared/messageflash'%>
 
+    <div class="title-center">
+    <%= link_to inventories_newfood_path(@selected_inventory.id), class: "link_style" do %>
+            <button class="button-29" role="button">Add new food</button>
+    <%end%>
+    </div>
+
+
+
     <% if @selected_inventory_foods.empty?%>
         <%= render 'shared/nodatacard', :message => "The inventory #{@selected_inventory.name} is Empty"%>
       <% else %>

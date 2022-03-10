@@ -4,7 +4,7 @@
               <div class="blog-slider">
               <h2 class="blog-slider__title title-center">Add an food to <%= @selected_inventory.name %></h2>
 
-  <%= form_with url: post_inventories_newfood_path(params[:inventory_id]), method: :post do |f| %>
+  <%= form_with(model: @inventory_food, url: post_inventories_newfood_path(@selected_inventory.id), method: :post, local: true) do |f| %>
 
     <h2 class="background double">
 <span>

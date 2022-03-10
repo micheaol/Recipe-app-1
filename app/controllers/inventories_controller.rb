@@ -52,17 +52,24 @@ class InventoriesController < ApplicationController
 
   def newfood_inventory
     @foods = Food.all
+    @inventory_food = InventoryFood.new
     @selected_inventory = Inventory.find(params[:inventory_id])
   end
 
   def post_newfood_inventory
     @inventory_food = InventoryFood.new
-    p params[:quantity]
+
+    p params[:inventory_food][:quantity]
+    p params[:inventory_food][:food_id]
     p params[:inventory_id]
-    p params[:food_id]
-    @inventory_food.quantity = params[:quantity].to_i
-    @inventory_food.inventories_id = params[:inventory_id].to_i
-    @inventory_food.foods_id = params[:food_id].to_i
+
+    @inventory_food.quantity = params[:inventory_food][:quantity]
+    @inventory_food.inventories_id = params[:inventory_id]
+    @inventory_food.foods_id = params[:inventory_food][:food_id]
+
+    # InventoryFood.create!(quantity: params[:quantity], inventories_id: params[:inventory_id], foods_id: params[:foods_id])
+
+
     if @inventory_food.save
       flash[:success] = 'Food added to inventory!'
     else
