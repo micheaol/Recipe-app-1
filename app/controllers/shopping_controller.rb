@@ -1,4 +1,5 @@
 class ShoppingController < ApplicationController
+  before_action :authenticate_user!
   # rubocop:disable Metrics/MethodLength
   def show
     @selected_inventory = Inventory.find(params[:inventory_id])
