@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="show-recipe-btns">
-    <button>Generate shopping list</button>
+    <button onclick="toggleModal()">Generate shopping list</button>
     <%= link_to 'Add ingredient', new_food_recipe_path(params[:recipe_id]) %>
   </div>
   <% flash.each do |type, msg| %>
@@ -51,3 +51,5 @@
     </table>
   </div>
 </div>
+
+  <%= render "shared/shoppingmodal" %>

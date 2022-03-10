@@ -122,3 +122,8 @@
   display: flex;
   justify-content: center;
 }
+
+.recipes-container-info {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,18 @@
+<body class="page_body">
+    <%= render 'shared/messageflash'%>
+
+          <div class="blog-slider">
+            <h2 class="blog-slider__title title-center">Shopping List</h2>
+
+            
+              <% if @shopping_bag.empty?%>
+                      <%= render 'shared/nodatacard', :message => "There are not missing ingredients"%>
+              <% else%>
+                      <%= render 'shared/shoppinglist', :foods => @shopping_bag%>
+              
+              <% end%>
+                
+
+
+        <div>
+</body>
