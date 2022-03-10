@@ -1,9 +1,10 @@
 class FoodRecipe < ApplicationRecord
-  belongs_to :recipe, :counter_cache => true, optional: true
-  belongs_to :food, optional: true
+  belongs_to :recipe
+  belongs_to :food
 
  
-  def food_recipe_count(counter)
-    recipe.update(food_recipe_count: counter)
+  def recipe_counter
+    @recipe = FoodRecipe.includes(:food).where(:recipe_id => 2)
+    puts 'hi'
   end
 end
