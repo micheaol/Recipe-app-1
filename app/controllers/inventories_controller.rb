@@ -57,13 +57,11 @@ class InventoriesController < ApplicationController
   end
 
   def post_newfood_inventory
-
     @inventory_food = InventoryFood.new
 
     @inventory_food.quantity = params[:inventory_food][:quantity]
     @inventory_food.inventory_id = params[:inventory_id]
     @inventory_food.food_id = params[:inventory_food][:food_id]
-
 
     if @inventory_food.save
       flash[:success] = 'Food added to inventory!'
