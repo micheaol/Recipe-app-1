@@ -67,8 +67,6 @@ class InventoriesController < ApplicationController
     @inventory_food.inventories_id = params[:inventory_id]
     @inventory_food.food_id = params[:inventory_food][:food_id]
 
-    # InventoryFood.create!(quantity: params[:quantity], inventories_id: params[:inventory_id], foods_id: params[:foods_id])
-
 
     if @inventory_food.save
       flash[:success] = 'Food added to inventory!'
