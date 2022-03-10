@@ -5,6 +5,8 @@
         <div class="m-3">
           <%= link_to public_recipe.name, show_public_recipes_path(public_recipe.id)%>
           <p>User's name: </p>
+          <%= Recipe.count(public_recipe.id) %>
+          <%= Recipe.total(public_recipe.id) %>
         </div>
 
         <div class="m-3">
