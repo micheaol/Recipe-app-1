@@ -1,0 +1,19 @@
+<table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+        <th scope="col">Food</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        </tr>
+    </thead>
+  <tbody>
+  <% foods.each do |food|%>
+    <tr>
+      <td><%=food[:food_name]%></td>
+      <td><%= food[:missing_quantity]%></td>
+      <td><%= food[:price_to_pay]%></td>
+      
+    </tr>
+  </tbody>
+    <%end%>
+</table>

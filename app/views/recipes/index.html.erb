@@ -1,21 +1,17 @@
-<div class="recipes-container">
-  <h1>User name recipes</h1>
-    <% flash.each do |type, msg| %>
-    <% if type == 'success' %>
-      <h3 class="mid-gap">
-        <%= msg %>
-      </h3>
-    <% end %>
-    <% if type == 'error' %>
-      <h3>
-        <%= msg %>
-      </h3>
-    <% end %>
-  <% end %>
-  <ul class="recipes-list">
+<body class="page_body">
+  <%= render 'shared/messageflash'%>
+  <h2 class="blog-slider__title title-center"><%= current_user.name %>'s recipes</h2>
+
+  <%= link_to recipes_new_path, class: "link_style title-center" do %>
+              <button class="button-29" role="button">Create new recipe</button>
+              <% end %>
+            </div>
+
+    
   <% @recipes.each do |recipe|%>
     <%= link_to recipes_show_path(recipe.id) do %>
-      <article class="recipe-card">
+  <div class="blog-slider">
+  <div class="recipes-container-info">
         <div class="recipe-card-info">
           <h3><%= recipe.name %></h3>
           <%= button_to "Remove", delete_recipe_path(recipe.id), method: :delete %>
@@ -23,9 +19,8 @@
         <div class="recipe-card-about">
           <p><%= recipe.description %></p>
         </div>
-      </article>
+  </div>
+</div>
     <% end %>
   <% end %>
-  </ul>
-  <%= link_to 'Create new recipe', recipes_new_path %>
-</div>
+</body>

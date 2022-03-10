@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="show-recipe-btns">
-    <button>Generate shopping list</button>
+    <button onclick="toggleModal()">Generate shopping list</button>
     <%= link_to 'Add ingredient', new_food_recipe_path(params[:recipe_id]) %>
   </div>
   <% flash.each do |type, msg| %>
@@ -42,12 +42,14 @@
       </tr>
       <% @food_recipes.each do |food_recipe| %>
         <tr>
-          <td><%= Food.find(food_recipe.food_id).name %></td>
-          <td><%= food_recipe.quantity %> <%= Food.find(food_recipe.food_id).measurement_unit %></td>
-          <td><%= Food.find(food_recipe.food_id).price * food_recipe.quantity %></td>
+          <td><%= food_recipe.food.name %></td>
+          <td><%= food_recipe.quantity %> <%= food_recipe.food.measurement_unit %></td>
+          <td><%= food_recipe.food.price * food_recipe.quantity %></td>
           <td><%= link_to 'Modify', edit_food_recipes_path(params[:recipe_id], food_recipe.id), method: :put %> <%= button_to 'Remove', delete_food_recipe_path(params[:recipe_id], food_recipe.id), method: :delete %></td>
         </tr>
       <% end%>
     </table>
   </div>
 </div>
+
+  <%= render "shared/shoppingmodal" %>

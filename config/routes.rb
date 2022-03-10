@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   delete '/recipes/:recipe_id', to: 'recipes#destroy', as: 'delete_recipe'
   post '/recipes/:user_id/recipe', to: "recipes#create", as: 'create_recipe'
 
-  # get 'recipes/:recipe_id/food_recipe', to: 'food_recipes#index', as: 'food_recipes'
-  # get 'recipes/:recipe_id/food_recipe/:food_recipe_id', to: 'food_recipes#show', as: 'food_recipe'
+ 
   get 'recipes/:recipe_id/food_recipes/new', to: 'food_recipes#new', as: 'new_food_recipe'
   get 'recipes/:recipe_id/food_recipes/:food_recipe_id', to: 'food_recipes#edit', as: 'edit_food_recipes'
   put 'recipes/:recipe_id/food_recipes/:food_recipe_id', to: 'food_recipes#update', as: 'update_food_recipes'
@@ -38,5 +37,8 @@ Rails.application.routes.draw do
   post '/foods/:user_id', to: 'foods#create', as: 'create_foods_form'
   get '/foods/:id', to: 'foods#show', as: 'foods_show'
   get '/foods/:id/destroy', to: 'foods#destroy', as: 'foods_destroy'
+
+
+  post '/shopping_list/:recipe_id', to: 'shopping#show', as: 'shopping_show'
   
 end
