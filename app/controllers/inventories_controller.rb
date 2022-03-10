@@ -9,7 +9,7 @@ class InventoriesController < ApplicationController
 
   def show
     @selected_inventory = Inventory.find(params[:inventory_id])
-    @selected_inventory_foods = InventoryFood.where(inventories_id: params[:inventory_id])
+    @selected_inventory_foods = InventoryFood.where(inventory_id: params[:inventory_id]).includes(:food)
   end
 
   def create
@@ -38,7 +38,7 @@ class InventoriesController < ApplicationController
   end
 
   def destroy_food
-    @food_to_delete = InventoryFood.where(inventories_id: params[:inventory_id], food_id: params[:foods_id]).first
+    @food_to_delete = InventoryFood.where(inventory_id: params[:inventory_id], food_id: params[:foods_id]).first
     p @food_to_delete
     if @food_to_delete.destroy
 
@@ -57,14 +57,11 @@ class InventoriesController < ApplicationController
   end
 
   def post_newfood_inventory
+
     @inventory_food = InventoryFood.new
 
-    p params[:inventory_food][:quantity]
-    p params[:inventory_food][:food_id]
-    p params[:inventory_id]
-
     @inventory_food.quantity = params[:inventory_food][:quantity]
-    @inventory_food.inventories_id = params[:inventory_id]
+    @inventory_food.inventory_id = params[:inventory_id]
     @inventory_food.food_id = params[:inventory_food][:food_id]
 
 

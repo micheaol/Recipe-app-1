@@ -45,12 +45,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222150) do
 
   create_table "inventory_foods", force: :cascade do |t|
     t.integer "quantity"
-    t.integer "inventories_id"
+    t.integer "inventory_id"
     t.integer "food_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["food_id"], name: "index_inventory_foods_on_food_id"
-    t.index ["inventories_id"], name: "index_inventory_foods_on_inventories_id"
+    t.index ["inventory_id"], name: "index_inventory_foods_on_inventory_id"
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -88,6 +88,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_222150) do
   add_foreign_key "foods", "users"
   add_foreign_key "inventories", "users"
   add_foreign_key "inventory_foods", "foods"
-  add_foreign_key "inventory_foods", "inventories", column: "inventories_id"
+  add_foreign_key "inventory_foods", "inventories"
   add_foreign_key "recipes", "users"
 end
