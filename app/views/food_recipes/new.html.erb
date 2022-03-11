@@ -1,17 +1,24 @@
 <div class="new-recipes-container">
-<h1>Add an ingredient</h1>
-  <%= form_with url: create_food_recipe_path(params[:recipe_id]), method: :post do |f| %>
-    <div>
-      <%= f.label :foods_id, 'Food' %><br>
-      <% foods_array = @foods.map { |f| [f.name, f.id] } %>
-      <%= f.select(:food_id, options_for_select(foods_array)) %>
-    </div>
-    <div>
-      <%= f.label :quantity %><br>
-      <%= f.number_field :quantity, min: 0 %>
-    </div>
-    <div>
-      <%= f.submit 'Add ingredient' %>
-    </div>
+  <% unless @foods.empty? %>
+    <h1>Add an ingredient</h1>
+    <%= form_with url: create_food_recipe_path(params[:recipe_id]), method: :post do |f| %>
+      <div>
+        <%= f.label :foods_id, 'Food' %><br>
+        <% foods_array = @foods.map { |f| [f.name, f.id] } %>
+        <%= f.select(:food_id, options_for_select(foods_array)) %>
+      </div>
+      <div>
+        <%= f.label :quantity %><br>
+        <%= f.number_field :quantity, min: 0 %>
+      </div>
+      <div>
+        <%= f.submit 'Add ingredient' %>
+      </div>
+    <% end %>
+  <% else %>
+    <h2 class="mb-5 w-75">Currently you don't have any food to add ingredients. Please create some food first</h2 class="mb-5 w-75 text-align-center">
+    <%= link_to foods_new_path, class: "link_style" do %>
+      <button class="button-29" >Create Food!</button>
+    <% end %>
   <% end %>
 </div>
