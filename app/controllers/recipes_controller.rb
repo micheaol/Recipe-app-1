@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, :except => [:show]
+  before_action :authenticate_user!, except: [:show]
 
   def index
     @recipes = current_user.recipes
   end
 
   def show
-    #add logic here for public recipes
+    # add logic here for public recipes
     @recipe = Recipe.find(params[:recipe_id])
     @inventory = Inventory.where(user_id: @recipe.user_id)
     @food_recipes = FoodRecipe.where(recipe_id: @recipe.id).includes(:food)

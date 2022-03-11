@@ -71,10 +71,10 @@
 
 .recipe-info {
   margin-top: 25px;
-    height: 120px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .preparation-div {
@@ -88,7 +88,6 @@
   display: flex;
   justify-content: space-around;
   margin: 25px 0;
-
 }
 
 .recipe-table-container {
@@ -106,11 +105,11 @@
 }
 
 .recipe-description {
-  margin: 20px 0px;
+  margin: 20px 0;
 }
 
 .recipe-action-buttons {
   display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
