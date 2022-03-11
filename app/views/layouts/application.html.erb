@@ -11,8 +11,17 @@
   </head>
 
   <body>
+  <div class="menu-gradient-button-container">
+  <button onclick="toggleMenu()" id="menuButton" class="button-29 menu-gradient-button">
+ Menu 
+  </button>
+  </div>
+
+    <%= render "shared/menu" %>
+
     <%= yield %>
      <%= javascript_include_tag( 'modal.js' ) %>    
+     <%= javascript_include_tag( 'menu.js' ) %>    
      <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
