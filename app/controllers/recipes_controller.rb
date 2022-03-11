@@ -8,18 +8,14 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:recipe_id])
 
-    if !user_signed_in?
+    if !user_signed_in? && (@recipe.public == false)
+      flash[:message] = 'You need to sign in or sign up before continuing.'
+      redirect_to root_path
+    end
 
-      if @recipe.public == false
-        flash[:message] = 'You need to sign in or sign up before continuing.'
-        redirect_to root_path
-      end
-
-    elsif @recipe.user_id != current_user.id
-
+    if user_signed_in? && ((@recipe.user_id != current_user.id) && @recipe.public == false)
       flash[:message] = 'You have no access to this post.'
       redirect_to root_path
-
     end
 
     @inventory = Inventory.where(user_id: @recipe.user_id)
