@@ -7,7 +7,7 @@
   height: 100vh;
   opacity: 0.8;
   display: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 .firstContainer {
@@ -80,4 +80,17 @@
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+
+.optionMenu {
+  background: transparent;
+  border: 0;
+  color: white; 
+  font-size: 30px;
+    font-weight: 500;
+}
+
+.optionMenu:hover {
+  text-decoration: underline;
 }
