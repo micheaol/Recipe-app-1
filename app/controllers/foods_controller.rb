@@ -14,17 +14,17 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @current_user = params[:user_id]
-    @new_food = Food.new(user_id: @current_user, name: params[:food][:name],
+    @new_food = Food.new(user_id: current_user.id, name: params[:food][:name],
                          measurement_unit: params[:food][:measurement_unit], price: params[:food][:price])
 
-    if @new_food.save!
+    if @new_food.save
       flash[:notice] = 'Food saved successfully.'
       redirect_to foods_index_path
 
     else
+      p @new_food.errors.full_messages
       flash[:alert] = 'Opps! Something went wrong.'
-      render :new
+      redirect_to foods_new_path
     end
   end
 
