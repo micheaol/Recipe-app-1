@@ -1,17 +1,26 @@
-<div class="new-recipes-container">
-  <h1>Update quantity</h1>
+<body class="page_body">
+<div class="blog-slider">
+    <h2 class="blog-slider__title title-center">Update Quantity of "<%= @food.name%>"</h2>
   <%= form_with model: @food_recipe, url: update_food_recipes_path(params[:recipe_id], params[:food_recipe_id]), method: :put do |f| %>
-    <div>
-      <%= @food.name%>
-    </div>
-    
-    <div>
+  
+
+<h2 class="background double">
+<span>
       <%= f.label :quantity %><br>
-      <%= f.number_field :quantity, min: 0 %>
+</span>
+</h2>
+
+ <div class="session-input-container">
+      <%= f.number_field :quantity, min: 0, placeholder: "Insert quantity" %>
+</div>
+
+
+
+    <div class="links-align">
+  <div class="actions button_margin">
+      <%= f.submit 'Update', class: "button-29" %>
     </div>
-    
-    <div>
-      <%= f.submit 'Update' %>
     </div>
   <% end %>
 </div>
+</body>

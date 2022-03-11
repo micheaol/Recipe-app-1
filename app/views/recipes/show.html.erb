@@ -14,10 +14,9 @@
     <div>
     <% if can? :manage, @recipe %>
       <%= form_with model: @recipe, url: recipes_update_path(params[:recipe_id]), method: :put do |f| %>
-        <div class="switch-form">
-          <%= f.label :public, 'Public:', class: "h5 form-check-label", for: "flexSwitchCheckDefault" %>
-          <%= f.check_box :public, class: "form-check-input", id: "flexSwitchCheckDefault", onchange: "this.form.submit();" %>
-          <%= @recipe.public %>
+        <div class="custom-control custom-switch">
+          <%= f.check_box :public, class: "custom-control-input", id: "flexSwitchCheckDefault", onchange: "this.form.submit();" %>
+          <%= f.label :public, ' ', class: "custom-control-label", for: "flexSwitchCheckDefault" %>
         </div>
       <% end %>
     <% end %>
@@ -60,7 +59,7 @@
         <tr>
           <td><%= food_recipe.food.name %></td>
           <td><%= food_recipe.quantity %> <%= food_recipe.food.measurement_unit %></td>
-          <td><%= food_recipe.food.price * food_recipe.quantity %></td>
+          <td><%= (food_recipe.food.price * food_recipe.quantity).round(2) %></td>
           <% if can? :manage, @recipe %>
           <td class="recipe-action-buttons">
           <%= link_to edit_food_recipes_path(params[:recipe_id], food_recipe.id), method: :put, class: "edit-button-active link_style"  do %> 

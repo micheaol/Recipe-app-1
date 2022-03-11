@@ -22,7 +22,6 @@ default: &default
   password: 123
 
 
-
 development:
   <<: *default
   username: postgres

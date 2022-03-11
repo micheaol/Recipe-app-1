@@ -20,7 +20,7 @@ class ShoppingController < ApplicationController
         @shopping_bag.push({
                              food_name: food.food.name,
                              missing_quantity: "#{recipe.quantity - food.quantity} #{recipe.food.measurement_unit}",
-                             price_to_pay: (recipe.quantity - food.quantity) * food.food.price
+                             price_to_pay: ((recipe.quantity - food.quantity) * food.food.price).round(2)
                            })
       end
 
@@ -29,7 +29,7 @@ class ShoppingController < ApplicationController
       @shopping_bag.push({
                            food_name: recipe.food.name,
                            missing_quantity: "#{recipe.quantity} #{recipe.food.measurement_unit}",
-                           price_to_pay: recipe.quantity * recipe.food.price
+                           price_to_pay: (recipe.quantity * recipe.food.price).round(2)
                          })
     end
   end

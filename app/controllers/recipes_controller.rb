@@ -6,8 +6,22 @@ class RecipesController < ApplicationController
   end
 
   def show
-    # add logic here for public recipes
     @recipe = Recipe.find(params[:recipe_id])
+
+    if !user_signed_in?
+
+      if @recipe.public == false
+        flash[:message] = 'You need to sign in or sign up before continuing.'
+        redirect_to root_path
+      end
+
+    elsif @recipe.user_id != current_user.id
+
+      flash[:message] = 'You have no access to this post.'
+      redirect_to root_path
+
+    end
+
     @inventory = Inventory.where(user_id: @recipe.user_id)
     @food_recipes = FoodRecipe.where(recipe_id: @recipe.id).includes(:food)
   end
@@ -23,6 +37,7 @@ class RecipesController < ApplicationController
     @recipe.cooking_time = params[:recipe][:cooking_time]
     @recipe.description = params[:recipe][:description]
     @recipe.user_id = params[:user_id]
+
     if @recipe.save
       flash[:success] = 'Recipe saved successfully'
       redirect_to recipes_index_path

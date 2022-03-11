@@ -1,4 +1,9 @@
 class Recipe < ApplicationRecord
+  validates :name, presence: { message: 'Name must not be blank!' }
+  validates :preparation_time, presence: { message: 'Preparation time must not be blank!' }
+  validates :cooking_time, presence: { message: 'Cooking time must not be blank!' }
+  validates :description, presence: { message: 'Description must not be blank!' }
+
   belongs_to :user
   has_many :food_recipes, dependent: :destroy
 

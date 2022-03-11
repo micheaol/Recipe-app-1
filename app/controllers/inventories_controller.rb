@@ -53,7 +53,7 @@ class InventoriesController < ApplicationController
   end
 
   def newfood_inventory
-    @foods = Food.all
+    @foods = Food.where(user_id: current_user)
     @inventory_food = InventoryFood.new
     @selected_inventory = Inventory.find(params[:inventory_id])
   end

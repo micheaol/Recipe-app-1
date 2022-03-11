@@ -35,7 +35,7 @@
       <th scope="row"><%= food.id%></th>
       <td><%= food.name%></td>
       <td><%= food.measurement_unit%></td>
-      <td><%= food.price%></td>
+      <td><%= food.price.round(2)%></td>
       <td>
       <%= link_to foods_destroy_path(food.id), method: :delete, class: "delete-button-active" do%>
             <ion-icon name="trash-outline"></ion-icon>
