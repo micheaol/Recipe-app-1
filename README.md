@@ -20,6 +20,7 @@
 
   <p align="center">
     <br />
+    <a href="https://drive.google.com/file/d/1tec81pyX0Msdy1juv6VVXeMBJbI-bJrh/view?usp=sharing"><strong>Explanation Video »</strong></a></br>
     <a href="https://github.com/jchernandez87/Recipe-app"><strong>Explore the docs »</strong></a>
     <br />
     <br />
