@@ -1,20 +1,28 @@
 <body class="page_body">
   <%= render 'shared/messageflash'%>
+
+<% if @public_recipes.empty?%>
+        <%= render 'shared/nodatacard', :message => "No inventory found"%>
+      <% else %>
+
+
    <% @public_recipes.each do |public_recipe| %>
-    <div class="card d-flex flex-row m-3">
-        <div class="m-3">
-          <%= link_to public_recipe.name, recipes_show_path(public_recipe.id)%>
+      <%= link_to recipes_show_path(public_recipe.id), class: "link_style" do%>
+           <div class="blog-slider new-shadow new-height link-style recipe-info-container">
+
+<div class="">
+          <h2> <%=public_recipe.name%></h2>
           <p>Name: <%=public_recipe.user.name%></p>
-        
         </div>
-        <div class="m-3">
+        <div>
           <p>Total food items:    <%= Recipe.count(public_recipe.id) %></p>
           <p>Total price: $ <%= Recipe.total(public_recipe.id) %></p>
         </div>
-    </div>
+      </div>
+    <%end%>
+    <%end%>
     <%end%>
 
   
 
-  <%= render 'shared/sessionbutton' %>
 </body>
