@@ -1,0 +1,55 @@
+<body class="page_body">
+<%= render 'shared/messageflash'%>
+<div class="blog-slider">
+
+
+<h2 class="blog-slider__title title-center">Add new food</h2>
+
+<%= form_with url: create_foods_form_path(current_user), method: :post, model: @food do |form| %>
+
+<h2 class="background double">
+<span>
+    <%= form.label :name %><br />
+</span>
+</h2>
+
+ <div class="session-input-container">
+<%= form.text_field :name%>
+</div>
+
+
+<h2 class="background double">
+<span>
+    <%= form.label :measurement_unit %><br />
+</span>
+</h2>
+
+ <div class="session-input-container">
+<%= form.text_field :measurement_unit, placeholder: "Example: gm, kg etc..." %>
+</div>
+
+<h2 class="background double">
+<span>
+    <%= form.label :price %><br />
+</span>
+</h2>
+
+
+ <div class="session-input-container">
+<%= form.number_field :price, step: :any %>
+</div>
+
+
+<div class="links-align">
+
+<div class="actions button_margin">
+    <%= form.submit "Add food", class:"button-29" %>
+  </div>
+  </div>
+
+<%end%>
+
+
+
+</div>
+</body>

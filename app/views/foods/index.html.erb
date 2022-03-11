@@ -1,0 +1,53 @@
+<body class="page_body">
+
+
+
+<%= link_to foods_new_path, class: "link_style title-center" do %>
+
+      
+<button class="button-29" role="button">Add new Food</button>
+              <%end%>
+              
+    <%= render 'shared/messageflash'%>
+
+   <% if @show_foods.blank? %>
+       <div class="blog-slider new-shadow new-height">
+
+    <h2 class="title-center">There are not any foods currently in the system.</h2>
+    </div>
+    <% else %>
+           <div class="blog-slider new-shadow new-height">
+
+    <%# <h1>These are the current foods in our system</h1> %>
+  <table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Food</th>
+        <th scope="col">Unit</th>
+        <th scope="col">Unit price</th>
+        <th scope="col">Action</th>
+        </tr>
+    </thead>
+  <tbody>
+  <% @show_foods.each do |food|%>
+    <tr>
+      <th scope="row"><%= food.id%></th>
+      <td><%= food.name%></td>
+      <td><%= food.measurement_unit%></td>
+      <td><%= food.price.round(2)%></td>
+      <td>
+      <%= link_to foods_destroy_path(food.id), method: :delete, class: "delete-button-active" do%>
+            <ion-icon name="trash-outline"></ion-icon>
+          <% end%>
+      </td>
+    </tr>
+  </tbody>
+    <%end%>
+</table>
+       </div>
+
+<%end%>
+</body>
+
+

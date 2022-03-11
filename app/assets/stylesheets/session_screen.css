@@ -1,0 +1,68 @@
+h2.background {
+  position: relative;
+  z-index: 1;
+}
+
+h2.background::before {
+  border-top: 2px solid #dfdfdf;
+  content: "";
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 95%;
+  z-index: -1;
+}
+
+h2.background span {
+  background: #fff;
+  padding: 0 15px;
+}
+
+h2.double::before {
+  border-top: none;
+}
+
+h2.double::after {
+  border-bottom: 1px solid blue;
+  -webkit-box-shadow: 0 1px 0 0 red;
+  -moz-box-shadow: 0 1px 0 0 red;
+  box-shadow: 0 1px 0 0 red;
+  content: "";
+  margin: 0 auto;
+  position: absolute;
+  top: 45%;
+  left: 0;
+  right: 0;
+  width: 95%;
+  z-index: -1;
+}
+
+.session-input-container {
+  margin: 13px;
+}
+
+.session-input-container input {
+  width: 100%;
+  font-size: 18px;
+}
+
+.session-input-container textarea {
+  width: 100%;
+}
+
+.links-align {
+  text-align: center;
+}
+
+.inner-spacing {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.button_margin {
+  margin-top: 15px;
+}

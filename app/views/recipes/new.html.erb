@@ -1,0 +1,63 @@
+<body class="page_body">
+  <%= render 'shared/messageflash'%>
+
+      <div class="blog-slider">
+
+<h2 class="blog-slider__title title-center">Add a new recipe</h2>
+
+    <%= form_with model: @recipe, url: create_recipe_path(current_user), method: :post do |f| %>
+      
+      <h2 class="background double">
+<span>
+        <%= f.label :name, class: "recipe-label" %><br>
+</span>
+</h2>
+
+ <div class="session-input-container">
+        <%= f.text_field :name, class: "recipe-text" %>
+</div>
+
+
+      <h2 class="background double">
+<span>
+        <%= f.label :description %><br>
+</span>
+</h2>
+
+ <div class="session-input-container">
+        <%= f.text_area :description, width: "100%" %>
+</div>
+      
+      <h2 class="background double">
+<span>
+        <%= f.label :preparation_time %><br>
+</span>
+</h2>
+
+ <div class="session-input-container">
+        <%= f.text_field :preparation_time, placeholder: "Example: 1 hour, minute etc.." %>
+</div>
+     
+      <h2 class="background double">
+<span>
+        <%= f.label :cooking_time %><br>
+</span>
+</h2>
+
+ <div class="session-input-container">
+        <%= f.text_field :cooking_time, placeholder: "Example: 1 hour, minute etc.."  %>
+</div>
+      
+      
+     
+     
+     
+      <div class="links-align">
+
+      <div class="actions button_margin">
+        <%= f.submit "Add recipe", class: "button-29" %>
+      </div>
+      </div>
+    <% end %>
+</div>
+</body>

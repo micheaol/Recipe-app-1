@@ -1,0 +1,23 @@
+<table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Food</th>
+        <th scope="col">Unit</th>
+        <th scope="col">Action</th>
+        </tr>
+    </thead>
+  <tbody>
+  <% foods.each do |food|%>
+    <tr>
+      <th scope="row"><%= food.food.id%></th>
+      <td><%=food.food.name%></td>
+      <td><%= food.quantity%> <%= food.food.measurement_unit%></td>
+      <td><%= button_to inventories_destroy_foods_path(inventory.id, food.food_id), method: :delete, class: "delete-button-active" do %>
+                <ion-icon name="trash-outline"></ion-icon>
+      <% end %>
+      </td>
+    </tr>
+  </tbody>
+    <%end%>
+</table>

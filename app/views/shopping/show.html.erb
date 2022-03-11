@@ -1,0 +1,39 @@
+<body class="page_body">
+    <%= render 'shared/messageflash'%>
+
+          <div class="blog-slider">
+            <h2 class="blog-slider__title title-center">Shopping List</h2>
+
+            
+              <% if @shopping_bag.empty?%>
+                      <%= render 'shared/nodatacard', :message => "There are not missing ingredients"%>
+              <% else%>
+                <div class="shopping-info-container">
+                
+                <div class="shopping-row">
+                <span>Amount of food to buy: <%= @shopping_bag.length %> </span>
+                <span> Recipe: <%= link_to "#{@selected_recipe.name}", recipes_show_path(@selected_recipe.id) %> </span>
+                </div>
+                
+                
+                <div class="shopping-row ">
+                <% @total_bag = 0 %>
+                <% @shopping_bag.each do  |item| %>
+                <% @total_bag += item[:price_to_pay].round(2) %>
+                <% end %>
+                
+                <span>Total value of food needed: $<%= @total_bag %>  </span>
+                <span>Inventory: <%= link_to "#{@selected_inventory.name}", inventories_show_path(@selected_inventory.id) %></span>
+                </div>
+
+
+                
+                </div>
+                      <%= render 'shared/shoppinglist', :foods => @shopping_bag%>
+              
+              <% end%>
+                
+
+
+        <div>
+</body>

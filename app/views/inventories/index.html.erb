@@ -1,0 +1,22 @@
+<body class="page_body">
+
+            <div class="new-inventory-button">
+            <%= link_to inventories_new_path, class: "link_style" do %>
+              <button class="button-29" role="button">New inventory</button>
+              <% end %>
+            </div>
+
+        <%= render 'shared/messageflash'%>
+            <% if @user_inventory.empty?%>
+        <%= render 'shared/nodatacard', :message => "No inventories found."%>
+      <% else %>
+
+    <% @user_inventory.each do |inventory| %>
+    
+        <%= render 'shared/inventorycard', :inventory => inventory%>
+    
+    <%  end %>
+    <%  end %>
+    
+
+</body>

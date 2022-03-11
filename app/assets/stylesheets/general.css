@@ -1,0 +1,149 @@
+.page_body {
+  background-color: #ffe53b;
+  background-image: linear-gradient(170deg, #1c92d2 0%, #c3f1fa 74%);
+  min-height: 100vh;
+  font-family: 'Fira Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-attachment: fixed;
+}
+
+.blog-slider {
+  width: 95%;
+  position: relative;
+  max-width: 800px;
+  margin: 15px auto;
+  background: #fff;
+  box-shadow: 0 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 25px;
+  border-radius: 25px;
+  height: auto;
+  min-height: 150px;
+  transition: all 0.3s;
+}
+
+.blog-slider__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0d0925;
+  margin-bottom: 12px;
+}
+
+.title-center {
+  text-align: center;
+}
+
+.error_color {
+  color: red;
+}
+
+.white_color {
+  color: white !important;
+}
+
+.flashMessage {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  text-align: center;
+  text-shadow: 0 0 10px #212529;
+}
+
+.link_style {
+  color: #000;
+  text-decoration: none;
+}
+
+.link_style:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.session_buttons {
+  display: flex;
+  padding: 20px;
+  gap: 60px;
+  justify-content: center;
+}
+
+.new-inventory-button {
+  text-align: center;
+}
+
+.delete-button-active {
+  border: 0;
+  background-color: transparent;
+  color: red;
+  font-size: 25px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.edit-button-active {
+  color: aquamarine;
+  font-size: 25px;
+}
+
+.select-tag {
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  flex: 1;
+  padding: 0 1em;
+  color: var(--light-color);
+  background-color: #0365ac;
+  background-image: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dflex-row {
+  display: flex;
+}
+
+.select {
+  position: relative;
+  width: 20em;
+  height: 3em;
+  border-radius: 0.25em;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #024e85;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+
+/* Transition */
+.select:hover::after {
+  color: #29a3fb;
+}
+
+.select select {
+  width: 100%;
+  background-color: #024e85;
+  color: white;
+}
+
+.food-input-align {
+  display: flex;
+  justify-content: flex-start;
+  margin: 15px;
+}
+
+.recipes-container-info {
+  display: flex;
+  align-items: center;
+}
+
+.border-radius {
+  border-radius: 7px;
+}

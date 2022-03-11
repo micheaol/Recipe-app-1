@@ -1,0 +1,51 @@
+<body class="page_body">
+<div class="blog-slider">
+  <% unless @foods.empty? %>
+    <h2 class="blog-slider__title title-center">Add an ingredient</h2>
+    <%= form_with url: create_food_recipe_path(params[:recipe_id]), method: :post do |f| %>
+      
+      <h2 class="background double">
+<span>
+        <%= f.label :foods_id, 'Food' %><br>
+</span>
+</h2>
+
+ <div class="session-input-container">
+        <% foods_array = @foods.map { |f| [f.name, f.id] } %>
+         <div class="dflex-row select">
+        <%= f.select(:food_id, options_for_select(foods_array), class: "select-tag") %>
+</div>
+
+</div>
+
+
+
+
+<h2 class="background double">
+<span>
+        <%= f.label :quantity %><br>
+</span>
+</h2>
+
+ <div class="session-input-container">
+        <%= f.number_field :quantity, min: 0, placeholder: "Select quantity" %>
+</div>
+      
+      
+<div class="links-align">
+  <div class="actions button_margin">
+          <%= f.submit 'Add ingredient', class: "button-29" %>
+      </div>
+      </div>
+      </div>
+    <% end %>
+  <% else %>
+  
+    <h2 class="blog-slider__title title-center">Currently you don't have any food to add ingredients. Please create some food first</h2>
+    <%= link_to foods_new_path, class: "link_style recipes-button-align" do %>
+      <button class="button-29" >Create Food!</button>
+    <% end %>
+  <% end %>
+</div>
+
+</body>

@@ -1,0 +1,37 @@
+<body class="page_body">
+
+
+    <div class="title-center">
+    <%= link_to inventories_newfood_path(@selected_inventory.id), class: "link_style" do %>
+            <button class="button-29" role="button">Add new food</button>
+    <%end%>
+    </div>
+
+    <%= render 'shared/messageflash'%>
+
+
+    <% if @selected_inventory_foods.empty?%>
+        <%= render 'shared/nodatacard', :message => "The inventory #{@selected_inventory.name} is Empty"%>
+      <% else %>
+
+      <div class="blog-slider new-shadow new-height">
+
+<div class="recipe-info-container">
+    <div class="recipe-title-container">
+        <h2><%= @selected_inventory.name %></h2>
+
+            <%= render 'shared/inventoryfoodstable', :foods => @selected_inventory_foods, :inventory => @selected_inventory%>
+
+
+
+
+
+    </div>
+    </div>
+    </div>
+
+   
+    <%  end %>
+
+
+</body>

@@ -1,0 +1,49 @@
+ <div class="mobileMenuCover" id="mobileMenuCover">
+      <div class="firstContainer">
+        <span id="closeButton" onClick="closeMenu()" class="closeButton">X</span>
+      </div>
+      <div class="mobileMenu">
+        <ul>
+         <% if (current_page?(root_path) || current_page?(public_recipes_path)) == false %>
+               
+
+          <%= render 'shared/menuitem', :link => "/", :name => "Home" %>
+
+              <% end %>
+
+
+            <% if user_signed_in? %>
+         <%= render 'shared/menuitem', :link => "/recipes", :name => "My Recipes" %>
+         <%= render 'shared/menuitem', :link => "/inventories", :name => "My Inventories" %>
+         <%= render 'shared/menuitem', :link => "/foods", :name => "My Foods" %>
+
+
+          <li class="mobileMenuItems">
+            <a href="#portfolio" class="mobileMenuItems-a">
+              <%= form_with url: '/users/sign_out', method: :delete do |f| %>
+                <%= f.submit "Log out", class: "optionMenu"%>
+              <% end %>
+            </a>
+          </li>
+
+        
+
+
+
+                      <% else %>
+
+         <%= render 'shared/menuitem', :link => "/users/sign_up", :name => "Sign Up" %>
+         <%= render 'shared/menuitem', :link => "/users/sign_in", :name => "Sign In" %>
+
+         
+                      <% end %>
+        </ul>
+      </div>
+    </div>
+
+ 
+
+
+
+
+

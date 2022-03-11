@@ -1,0 +1,30 @@
+.recipe-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.recipe-title-container {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+  align-items: center;
+}
+
+.recipe-description-container {
+  max-width: 570px;
+}
+
+.recipe-description {
+  font-size: 20px;
+}
+
+.new-height {
+  min-height: auto;
+}
+
+.recipe-description-label {
+  font-size: 25px;
+  margin: 20px 0;
+}
