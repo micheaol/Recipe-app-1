@@ -19,7 +19,7 @@
                 <div class="shopping-row ">
                 <% @total_bag = 0 %>
                 <% @shopping_bag.each do  |item| %>
-                <% @total_bag += item[:price_to_pay] %>
+                <% @total_bag += item[:price_to_pay].round(2) %>
                 <% end %>
                 
                 <span>Total value of food needed: $<%= @total_bag %>  </span>

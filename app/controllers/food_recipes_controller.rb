@@ -2,7 +2,7 @@ class FoodRecipesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @foods = Food.all
+    @foods = Food.where(user_id: current_user)
     @food_recipe = FoodRecipe.new
   end
 

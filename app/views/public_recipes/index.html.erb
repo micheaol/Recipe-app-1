@@ -16,7 +16,7 @@
         </div>
         <div>
           <p>Total food items:    <%= Recipe.count(public_recipe.id) %></p>
-          <p>Total price: $ <%= Recipe.total(public_recipe.id) %></p>
+          <p>Total price: $ <%= Recipe.total(public_recipe.id).round(2) %></p>
         </div>
       </div>
     <%end%>
