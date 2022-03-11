@@ -2,7 +2,7 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @show_foods = Food.all
+    @show_foods = Food.where(user_id: current_user.id)
   end
 
   def show
