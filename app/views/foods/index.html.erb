@@ -1,6 +1,5 @@
 <body class="page_body">
 
-    <%= render 'shared/messageflash'%>
 
 
 <%= link_to foods_new_path, class: "link_style title-center" do %>
@@ -9,6 +8,8 @@
 <button class="button-29" role="button">Add new Food</button>
               <%end%>
               
+    <%= render 'shared/messageflash'%>
+
    <% if @show_foods.blank? %>
        <div class="blog-slider new-shadow new-height">
 
@@ -35,7 +36,11 @@
       <td><%= food.name%></td>
       <td><%= food.measurement_unit%></td>
       <td><%= food.price%></td>
-      <td><%= link_to "Delete", foods_destroy_path(food.id), method: :delete %></td>
+      <td>
+      <%= link_to foods_destroy_path(food.id), method: :delete, class: "delete-button-active" do%>
+            <ion-icon name="trash-outline"></ion-icon>
+          <% end%>
+      </td>
     </tr>
   </tbody>
     <%end%>
@@ -44,3 +49,5 @@
 
 <%end%>
 </body>
+
+

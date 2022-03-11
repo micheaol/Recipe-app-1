@@ -1,26 +1,32 @@
 <body class="page_body">
-  <%= render 'shared/messageflash'%>
-  <h2 class="blog-slider__title title-center"><%= current_user.name %>'s recipes</h2>
 
   <%= link_to recipes_new_path, class: "link_style title-center" do %>
               <button class="button-29" role="button">Create new recipe</button>
               <% end %>
             </div>
 
-    
+  <%= render 'shared/messageflash'%>
+
+
+<% if @recipes.empty?%>
+        <%= render 'shared/nodatacard', :message => "No recipes found."%>
+      <% else %>
+
   <% @recipes.each do |recipe|%>
-    <%= link_to recipes_show_path(recipe.id) do %>
-  <div class="blog-slider">
-  <div class="recipes-container-info">
-        <div class="recipe-card-info">
-          <h3><%= recipe.name %></h3>
-          <%= button_to "Remove", delete_recipe_path(recipe.id), method: :delete %>
+    <%= link_to recipes_show_path(recipe.id),  class: "link_style" do %>
+  <div class="blog-slider new-shadow new-height link-style recipe-info-container">
+  <div class="recipe-title-container">
+          <h2><%= recipe.name %></h2>
+          <%= button_to delete_recipe_path(recipe.id), method: :delete, class: "delete-button-active" do%>
+            <ion-icon name="trash-outline"></ion-icon>
+          <% end%>
         </div>
-        <div class="recipe-card-about">
+        <div>
           <p><%= recipe.description %></p>
         </div>
   </div>
 </div>
     <% end %>
+  <% end %>
   <% end %>
 </body>

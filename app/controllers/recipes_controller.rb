@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
     @recipe.description = params[:recipe][:description]
     @recipe.user_id = params[:user_id]
     if @recipe.save
-      flash[:success] = 'Recipe saved!!'
+      flash[:success] = 'Recipe saved successfully'
       redirect_to recipes_index_path
     else
       flash[:error] = 'Recipe save failed'
