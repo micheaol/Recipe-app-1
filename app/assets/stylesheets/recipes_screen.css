@@ -23,3 +23,8 @@
 .new-height {
   min-height: auto;
 }
+
+.recipe-description-label {
+  font-size: 25px;
+  margin: 20px 0;
+}

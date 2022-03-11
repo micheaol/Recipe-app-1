@@ -1,14 +1,20 @@
 <div class="projectDetailsModal gray" id="modal">
-          <span class="close-modal"  onclick="toggleModal()">x</span>
-          <%= form_with url: shopping_show_path(params[:recipe_id]) do |f| %>
-    <div>
-      <%= f.label :inventory_id, 'Inventory' %><br>
+          <%= form_with url: shopping_show_path(params[:recipe_id]), class: "modal-form" do |f| %>
+    <div class="blog-slider new-height">
+          <h2 class="title-center">Generating Shopping List </h2>
+          <h5 class="modal-choose-inventory">Choose an inventory to use </h5>
       <% inventory_array = @inventory.map { |f| [f.name, f.id] } %>
-      <%= f.select(:inventory_id, options_for_select(inventory_array)) %>
-    </div>
+      <div class="recipe-action-buttons">
+      <div class="dflex-row select ">
+
+      <%= f.select(:inventory_id, options_for_select(inventory_array), class: "select-tag") %>
+      </div>
     
-    <div>
+    <div class="modal-buttons">
       <%= f.submit 'Create shopping list', class: "button-29" %>
+      <a class="button-29 delete_button_style link_style white_color"  onclick="toggleModal()" >Cancel</a>
+    </div>
+      </div>
     </div>
   <% end %>
 </div>

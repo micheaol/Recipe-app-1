@@ -1,10 +1,15 @@
-<div class="recipes-container">
-  <h1><%= @recipe.name %></h1>
-  <div class="show-recipe-info">
+<body class="page_body">
+
+<%= render "shared/messageflash" %>
+
+<div class="blog-slider">
+
+<h2 class="blog-slider__title title-center"><%= @recipe.name %></h2>
+
+  <div class="recipe-info">
     <div class="preparation-div">
-      <span>Preparation time: <%= @recipe.preparation_time %></span>
-      <span>Cooking time: <%= @recipe.cooking_time %></span>
-      <p>Steps go here: <%= @recipe.description %></p>
+      <span class="recipe-description">Preparation time: <%= @recipe.preparation_time %></span>
+      <span class="recipe-description">Cooking time: <%= @recipe.cooking_time %></span>
     </div>
     <div>
     <% if can? :manage, @recipe %>
@@ -18,29 +23,31 @@
     <% end %>
     </div>
   </div>
+
+  <hr class="hr-class"/>
+      <h3 class="title-center recipe-description-label">Description</h3>
+      <p class="title-center">Steps go here: <%= @recipe.description %></p>
   
   <% if can? :manage, @recipe %>
     <div class="show-recipe-btns">
-      <button onclick="toggleModal()">Generate shopping list</button>
-      <%= link_to 'Add ingredient', new_food_recipe_path(params[:recipe_id]) %>
+    
+  <% if !@food_recipes.empty?  %>
+      <button onclick="toggleModal()" class="button-29 generate-shopping-button">Generate shopping list</button>
+  <% end  %>
+      <%= link_to new_food_recipe_path(params[:recipe_id]), class: "link_style" do%>
+      <button class="button-29 add-food-button">Add ingredient</button>
+      <%end%>
     </div>
   <% end %>
 
 
-  <% flash.each do |type, msg| %>
-    <% if type == 'success' %>
-      <h3 class="mid-gap">
-        <%= msg %>
-      </h3>
-    <% end %>
-    <% if type == 'error' %>
-      <h3>
-        <%= msg %>
-      </h3>
-    <% end %>
-  <% end %>
+<% if @food_recipes.empty?%>
+        <%= render 'shared/nodatacard', :message => "No food found."%>
+      <% else %>
+
+  
   <div class="recipe-table-container">
-    <table class="show-recipe-table">
+    <table class="table table-bordered table-dark">
       <tr>
         <th>Food</th>
         <th>Quantity</th>
@@ -55,12 +62,25 @@
           <td><%= food_recipe.quantity %> <%= food_recipe.food.measurement_unit %></td>
           <td><%= food_recipe.food.price * food_recipe.quantity %></td>
           <% if can? :manage, @recipe %>
-          <td><%= link_to 'Modify', edit_food_recipes_path(params[:recipe_id], food_recipe.id), method: :put %> <%= button_to 'Remove', delete_food_recipe_path(params[:recipe_id], food_recipe.id), method: :delete %></td>
+          <td class="recipe-action-buttons">
+          <%= link_to edit_food_recipes_path(params[:recipe_id], food_recipe.id), method: :put, class: "edit-button-active link_style"  do %> 
+          <ion-icon name="create-outline"></ion-icon>
+          <% end %> 
+          
+          <%= button_to delete_food_recipe_path(params[:recipe_id], food_recipe.id), method: :delete, class: "delete-button-active" do%>
+            <ion-icon name="trash-outline"></ion-icon>
+          <% end%>
+          
+          </td>
+          
           <% end %>
         </tr>
       <% end%>
     </table>
   </div>
+      <% end %>
 </div>
 
   <%= render "shared/shoppingmodal" %>
+
+</body>
