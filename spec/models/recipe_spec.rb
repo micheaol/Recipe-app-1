@@ -5,7 +5,7 @@ RSpec.describe Recipe, type: :model do
     @user = User.create(name: 'joe', email: 'mail@mail', password: 'password')
     @recipe = Recipe.new(name: 'first recipe', preparation_time: '1 hour', cooking_time: '30 minutes',
                          description: 'recipe description', user_id: @user.id)
-  endgit
+  end
 
   it 'should have name' do
     expect(@recipe.name).to eq('first recipe')
