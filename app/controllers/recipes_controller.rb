@@ -23,6 +23,8 @@ class RecipesController < ApplicationController
     @recipe.cooking_time = params[:recipe][:cooking_time]
     @recipe.description = params[:recipe][:description]
     @recipe.user_id = params[:user_id]
+
+
     if @recipe.save
       flash[:success] = 'Recipe saved successfully'
       redirect_to recipes_index_path
