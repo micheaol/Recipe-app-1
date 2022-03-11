@@ -14,10 +14,9 @@
     <div>
     <% if can? :manage, @recipe %>
       <%= form_with model: @recipe, url: recipes_update_path(params[:recipe_id]), method: :put do |f| %>
-        <div class="switch-form">
-          <%= f.label :public, 'Public:', class: "h5 form-check-label", for: "flexSwitchCheckDefault" %>
-          <%= f.check_box :public, class: "form-check-input", id: "flexSwitchCheckDefault", onchange: "this.form.submit();" %>
-          <%= @recipe.public %>
+        <div class="custom-control custom-switch">
+          <%= f.check_box :public, class: "custom-control-input", id: "flexSwitchCheckDefault", onchange: "this.form.submit();" %>
+          <%= f.label :public, ' ', class: "custom-control-label", for: "flexSwitchCheckDefault" %>
         </div>
       <% end %>
     <% end %>
