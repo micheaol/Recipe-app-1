@@ -130,8 +130,7 @@ For more examples, please refer to the [Documentation](https://deallen7.medium.c
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/jchernandez87/blog-app/issues) for a list of proposed features (and known issues).
-
+See the [open issues](https://github.com/jchernandez87/Recipe-app/issues) for a list of proposed features (and known issues).
 
 
 <!-- CONTRIBUTING -->
@@ -172,13 +171,11 @@ The source code for the site is licensed under the MIT license, which you can fi
 - GitHub: [@RafaelEchart](https://github.com/rafaelechart)
 - Gmail: [@Gmail](mailto:jchernandez827@gmail.com)
 - LinkedIn: [@LinkedIn](https://www.linkedin.com/in/juan-carlos-hernandez-200a05175)
-- Twitter: [@FindMeOnTwitter](https://twitter.com/Juancar70771241) 
+- Twitter: [@FindMeOnTwitter](https://twitter.com/Juancar70771241)
 
 
 
-
-
-Project Link: [https://github.com/jchernandez87/blog-app](https://github.com/jchernandez87/blog-app)
+Project Link: [https://github.com/jchernandez87/blog-app](https://github.com/jchernandez87/Recipe-app)
 
 
 
