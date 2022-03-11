@@ -32,7 +32,7 @@ test:
   <<: *default
   username: postgres
   password: 123
-  database: Recipe_app_test
+  database: Recipe_app_development
 
 production:
   <<: *default
