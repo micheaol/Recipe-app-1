@@ -50,3 +50,12 @@
 .delete_button_style {
   background-image: radial-gradient(100% 100% at 100% 0, #f85032 0, #e73827 100%) !important;
 }
+
+.generate-shopping-button {
+  background-image: radial-gradient(100% 100% at 100% 0, #5aff15 0, #00b712 100%);
+
+}
+
+.add-food-button {
+  background-image: radial-gradient(100% 100% at 100% 0, #a40606 0, #d98324 100%);
+}

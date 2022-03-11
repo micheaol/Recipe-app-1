@@ -38,7 +38,7 @@
 }
 
 .white_color {
-  color: white;
+  color: white !important;
 }
 
 .flashMessage {
@@ -77,6 +77,12 @@
   font-size: 25px;
   cursor: pointer;
   margin: 0;
+}
+
+.edit-button-active {
+  color: aquamarine;
+  font-size: 25px;
+
 }
 
 .select-tag {
