@@ -37,15 +37,25 @@
   color: red;
 }
 
+.white_color {
+  color: white;
+}
+
 .flashMessage {
   display: flex;
   justify-content: center;
   margin: 20px;
   text-align: center;
+  text-shadow: 0 0 10px #212529;
 }
 
 .link_style {
   color: #000;
+  text-decoration: none;
+}
+
+.link_style:hover {
+  color: black;
   text-decoration: none;
 }
 
@@ -120,10 +130,15 @@
 
 .food-input-align {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  margin: 15px;
 }
 
 .recipes-container-info {
   display: flex;
   align-items: center;
+}
+
+.border-radius {
+  border-radius: 7px;
 }

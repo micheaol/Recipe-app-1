@@ -1,6 +1,5 @@
 <body class="page_body">
 
-    <%= render 'shared/messageflash'%>
 
     <div class="title-center">
     <%= link_to inventories_newfood_path(@selected_inventory.id), class: "link_style" do %>
@@ -8,6 +7,7 @@
     <%end%>
     </div>
 
+    <%= render 'shared/messageflash'%>
 
 
     <% if @selected_inventory_foods.empty?%>
