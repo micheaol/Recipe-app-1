@@ -49,6 +49,10 @@ h2.double::after {
   font-size: 18px;
 }
 
+.session-input-container textarea {
+  width: 100%;
+}
+
 .links-align {
   text-align: center;
 }

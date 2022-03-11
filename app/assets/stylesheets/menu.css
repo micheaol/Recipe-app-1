@@ -33,7 +33,7 @@
 }
 
 .closeButton {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 @keyframes open-menu {
@@ -56,13 +56,13 @@
   }
 }
 
-.menu-gradient-button-container{
+.menu-gradient-button-container {
   text-align: center;
   margin: 25px;
 }
 
 .menu-gradient-button {
-  background-image: radial-gradient(100% 100% at 100% 0, #5468ff 0, #23D5AD 100%);
+  background-image: radial-gradient(100% 100% at 100% 0, #5468ff 0, #23d5ad 100%);
   background-size: 400% 400%;
   animation-name: gradient;
   animation-duration: 10s;
@@ -71,24 +71,25 @@
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
+  0% {
+    background-position: 0% 50%;
+  }
 
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 .optionMenu {
   background: transparent;
   border: 0;
-  color: white; 
+  color: white;
   font-size: 30px;
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .optionMenu:hover {

@@ -1,26 +1,63 @@
-<div class="new-recipes-container">
-  <h1>Add a new recipe</h1>
-  <div>
-    <%= form_with model: @recipe, url: create_recipe_path(current_user), class: "new-recipe-form", method: :post do |f| %>
-      <div>
+<body class="page_body">
+  <%= render 'shared/messageflash'%>
+
+      <div class="blog-slider">
+
+<h2 class="blog-slider__title title-center">Add a new recipe</h2>
+
+    <%= form_with model: @recipe, url: create_recipe_path(current_user), method: :post do |f| %>
+      
+      <h2 class="background double">
+<span>
         <%= f.label :name, class: "recipe-label" %><br>
+</span>
+</h2>
+
+ <div class="session-input-container">
         <%= f.text_field :name, class: "recipe-text" %>
-      </div>
-      <div class="recipe-text-field">
+</div>
+
+
+      <h2 class="background double">
+<span>
         <%= f.label :description %><br>
-        <%= f.text_area :description, size: "40x5", class: "recipe-text" %>
+</span>
+</h2>
+
+ <div class="session-input-container">
+        <%= f.text_area :description, width: "100%" %>
+</div>
+      
+      <h2 class="background double">
+<span>
+        <%= f.label :preparation_time %><br>
+</span>
+</h2>
+
+ <div class="session-input-container">
+        <%= f.text_field :preparation_time%>
+</div>
+     
+      <h2 class="background double">
+<span>
+        <%= f.label :cooking_time %><br>
+</span>
+</h2>
+
+ <div class="session-input-container">
+        <%= f.text_field :cooking_time %>
+</div>
+      
+      
+     
+     
+     
+      <div class="links-align">
+
+      <div class="actions button_margin">
+        <%= f.submit "Add recipe", class: "button-29" %>
       </div>
-      <div>
-        <%= f.label :preparation_time, class: "recipe-label" %><br>
-        <%= f.text_field :preparation_time, class: "recipe-text" %>
-      </div>
-      <div>
-        <%= f.label :cooking_time, class: "recipe-label" %><br>
-        <%= f.text_field :cooking_time, class: "recipe-text" %>
-      </div>
-      <div>
-        <%= f.submit "Add recipe" %>
       </div>
     <% end %>
-  </div>
 </div>
+</body>

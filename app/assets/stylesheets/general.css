@@ -37,8 +37,8 @@
   color: red;
 }
 
-.white_color{
-  color: white
+.white_color {
+  color: white;
 }
 
 .flashMessage {
@@ -129,9 +129,9 @@
 }
 
 .food-input-align {
-   display: flex;
-    justify-content: flex-start;
-    margin: 15px;
+  display: flex;
+  justify-content: flex-start;
+  margin: 15px;
 }
 
 .recipes-container-info {
