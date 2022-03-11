@@ -14,6 +14,7 @@ class FoodsController < ApplicationController
   end
 
   def create
+    p params[:food][:price]
     @new_food = Food.new(user_id: current_user.id, name: params[:food][:name],
                          measurement_unit: params[:food][:measurement_unit], price: params[:food][:price])
 
